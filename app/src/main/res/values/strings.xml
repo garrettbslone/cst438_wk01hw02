@@ -1,3 +1,6 @@
 <resources>
     <string name="app_name">retrofit_setup</string>
+    <string name="main_tv_login_str">Login</string>
+    <string name="main_et_uname_str">Username</string>
+    <string name="main_et_pass_sr">Password</string>
 </resources>
