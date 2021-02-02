@@ -20,11 +20,17 @@ public class Account {
 
     private static void create_accounts() {
         accounts.add(new Account("din_djarin", "baby_yoda_ftw"));
+        accounts.add(new Account("foo", "bar"));
+        accounts.add(new Account("baz", "foobarbaz"));
+        accounts.add(new Account("test_user", "test_pass"));
+        accounts.add(new Account("test_usertest_user", "test_pass"));
+        accounts.add(new Account("foo", "baz"));
     }
 
     public static List<Account> get_accounts() {
-        if (accounts.isEmpty())
+        if (accounts.isEmpty()) {
             create_accounts();
+        }
 
         return accounts;
     }
