@@ -14,7 +14,7 @@ public class Account {
     private String pass;
     private int id;
 
-    private static int cur_id = 0;
+    private static int cur_id = 1;
 
     private static final List<Account> accounts = new ArrayList<>();
 
@@ -24,7 +24,10 @@ public class Account {
         accounts.add(new Account("baz", "foobarbaz"));
         accounts.add(new Account("test_user", "test_pass"));
         accounts.add(new Account("test_usertest_user", "test_pass"));
-        accounts.add(new Account("foo", "baz"));
+        accounts.add(new Account("user1", "password"));
+        accounts.add(new Account("user2", "password"));
+        accounts.add(new Account("secret", "secret"));
+        accounts.add(new Account("admin", "admin"));
     }
 
     public static List<Account> get_accounts() {
