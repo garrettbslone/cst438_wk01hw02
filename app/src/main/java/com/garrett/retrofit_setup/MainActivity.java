@@ -8,8 +8,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.Gravity;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -47,6 +49,12 @@ public class MainActivity extends AppCompatActivity {
         return account.getPass().equals(pass);
     }
 
+    private Toast make_toast (String msg) {
+        Toast toast = Toast.makeText(getApplicationContext(), msg, Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER, 0, 0);
+        return toast;
+    }
+
     private String get_uname () {
         return uname_et.getText().toString().trim();
     }
@@ -60,6 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (!validate_uname(uname, accounts)) {
             uname_et.setBackgroundColor(Color.RED);
+            make_toast("Incorrect username").show();
             return -1;
         } else {
             uname_et.setBackgroundColor(Color.WHITE);
@@ -69,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (account == null || !validate_pass(pass, account)) {
             pass_et.setBackgroundColor(Color.RED);
+            make_toast("Incorrect password").show();
             return -1;
         }
 

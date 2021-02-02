@@ -28,6 +28,7 @@ public class Account {
         accounts.add(new Account("user2", "password"));
         accounts.add(new Account("secret", "secret"));
         accounts.add(new Account("admin", "admin"));
+        accounts.add(new Account("admin2", "admin2"));
     }
 
     public static List<Account> get_accounts() {
