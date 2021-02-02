@@ -10,7 +10,6 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.Toast;
 
 import java.util.List;
 
@@ -34,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
             int uid;
             if((uid = login(uname, pass)) >= 0) {
-                Intent intent = LandingPageActivity.get_intent(getApplicationContext(), uid);
+                Intent intent = LandingPageActivity.intent_factory(getApplicationContext(), uid);
                 startActivity(intent);
             }
         });
