@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
         Account account = Account.get_by_uname(accounts, uname);
 
-        if (!validate_pass(pass, account)) {
+        if (account == null || !validate_pass(pass, account)) {
             pass_et.setBackgroundColor(Color.RED);
             return -1;
         }
