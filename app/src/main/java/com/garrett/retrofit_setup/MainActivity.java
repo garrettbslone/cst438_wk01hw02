@@ -5,49 +5,46 @@ package com.garrett.retrofit_setup;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.EditText;
 
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
+    private EditText uname_et;
+    private EditText pass_et;
 
     @Override
     protected void onCreate (Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        EditText uname_et = findViewById(R.id.main_et_uname);
-        EditText pass_et = findViewById(R.id.main_et_pass);
+        uname_et = findViewById(R.id.main_et_uname);
+        pass_et = findViewById(R.id.main_et_pass);
 
         boolean logged_in;
         do {
-            String uname = get_uname(uname_et);
-            String pass = get_pass(pass_et);
+            String uname = get_uname();
+            String pass = get_pass();
 
             logged_in = login(uname, pass);
         } while (!logged_in);
     }
 
     public static boolean validate_uname(String uname, List<Account> accounts) {
-        for (Account account: accounts) {
-            if (account.getUname().equals(uname)) {
-                return true;
-            }
-        }
-
-        return false;
+        return Account.get_by_uname(accounts, uname) != null;
     }
 
-    public static boolean validate_pass(String pass, List<Account> accounts) {
-        return false;
+    public static boolean validate_pass(String pass, Account account) {
+        return account.getPass().equals(pass);
     }
 
-    private String get_uname (EditText uname_et) {
+    private String get_uname () {
         return uname_et.getText().toString().trim();
     }
 
-    private String get_pass (EditText pass_et) {
+    private String get_pass () {
         return pass_et.getText().toString().trim();
     }
 

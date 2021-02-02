@@ -41,6 +41,16 @@ public class Account {
         this.id = cur_id++;
     }
 
+    public static Account get_by_uname (List<Account> accounts, String uname) {
+        for (Account account: accounts) {
+            if (account.getUname().equals(uname)) {
+                return account;
+            }
+        }
+
+        return null;
+    }
+
     public String getUname () {
         return uname;
     }
